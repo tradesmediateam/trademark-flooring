@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Section } from "@/components/ui/Section";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { ArrowRightIcon } from "@/components/ui/Icons";
-import { preparationServices, sectorServices } from "@/lib/services";
+import { services } from "@/lib/services";
 import type { Service } from "@/lib/services";
 
 function ServiceCard({ service }: { service: Service }) {
@@ -30,6 +30,9 @@ function ServiceCard({ service }: { service: Service }) {
 }
 
 export function ServicesGrid() {
+  const preparationServices = services.slice(0, 3);
+  const sectorServices = services.slice(3);
+
   return (
     <Section className="bg-ink-50/50">
       <SectionHeading
