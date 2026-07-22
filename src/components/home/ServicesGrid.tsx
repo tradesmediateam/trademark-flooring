@@ -19,7 +19,7 @@ function ServiceCard({ service }: { service: Service }) {
         {service.title}
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-500">
-        {service.summary}
+        {service.description}
       </p>
       <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
         Learn more
