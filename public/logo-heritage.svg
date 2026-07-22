@@ -1,46 +1,78 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trademark Flooring heritage barn">
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trademark Flooring">
   <defs>
-    <linearGradient id="tfRoof" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#7A3F16"/>
-      <stop offset="100%" stop-color="#5A2E0F"/>
-    </linearGradient>
-    <linearGradient id="tfBody" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#C8641E"/>
-      <stop offset="100%" stop-color="#9A4A15"/>
-    </linearGradient>
+    <style>
+      .ink { fill: #3A2A1A; }
+      .gold { fill: #9C7C3C; }
+      .stroke-ink { fill: none; stroke: #3A2A1A; }
+      .stroke-gold { fill: none; stroke: #9C7C3C; }
+    </style>
   </defs>
 
-  <!-- Rounded emblem background -->
-  <rect x="3" y="3" width="94" height="94" rx="20" fill="#FBF3E8" stroke="#9A4A15" stroke-width="3"/>
+  <!-- Outer + inner rings -->
+  <circle cx="200" cy="200" r="191" class="stroke-ink" stroke-width="4"/>
+  <circle cx="200" cy="200" r="176" class="stroke-ink" stroke-width="2"/>
 
-  <!-- Ground line -->
-  <rect x="20" y="74" width="60" height="4" rx="2" fill="#7A3F16"/>
-
-  <!-- Barn roof -->
-  <path d="M22 46 L50 26 L78 46 Z" fill="url(#tfRoof)"/>
-  <!-- Roof overhang -->
-  <path d="M20 47 L50 26 L80 47 L74 47 L50 31 L26 47 Z" fill="#4A2610"/>
-
-  <!-- Barn body -->
-  <rect x="27" y="46" width="46" height="28" fill="url(#tfBody)"/>
-
-  <!-- Vertical plank lines -->
-  <g stroke="#7A3F16" stroke-width="1" opacity="0.45">
-    <line x1="38" y1="46" x2="38" y2="74"/>
-    <line x1="50" y1="46" x2="50" y2="74"/>
-    <line x1="62" y1="46" x2="62" y2="74"/>
+  <!-- Side vintage flourishes -->
+  <g class="ink">
+    <circle cx="18" cy="200" r="4"/>
+    <circle cx="382" cy="200" r="4"/>
+    <circle cx="30" cy="200" r="2.5"/>
+    <circle cx="370" cy="200" r="2.5"/>
   </g>
 
-  <!-- Classic barn "X" doors -->
-  <rect x="42" y="54" width="16" height="20" fill="#4A2610"/>
-  <g stroke="#C8641E" stroke-width="1.6">
-    <line x1="42" y1="54" x2="58" y2="74"/>
-    <line x1="58" y1="54" x2="42" y2="74"/>
+  <!-- Tree canopy (bushy heritage crown) -->
+  <g class="gold">
+    <circle cx="200" cy="108" r="42"/>
+    <circle cx="158" cy="120" r="38"/>
+    <circle cx="242" cy="120" r="38"/>
+    <circle cx="132" cy="158" r="37"/>
+    <circle cx="268" cy="158" r="37"/>
+    <circle cx="200" cy="150" r="60"/>
+    <circle cx="160" cy="188" r="34"/>
+    <circle cx="240" cy="188" r="34"/>
+    <circle cx="200" cy="195" r="40"/>
   </g>
 
-  <!-- Hayloft window -->
-  <circle cx="50" cy="41" r="4" fill="#FBF3E8" stroke="#4A2610" stroke-width="1.6"/>
+  <!-- Trunk + roots -->
+  <path class="gold" d="M193 196
+    L188 250
+    Q186 258 178 262
+    Q189 256 200 254
+    Q211 256 222 262
+    Q214 258 212 250
+    L207 196 Z"/>
 
-  <!-- Roof peak star accent -->
-  <circle cx="50" cy="22" r="2.4" fill="#E0A85C"/>
+  <!-- Inner branch lines for texture -->
+  <g class="stroke-ink" stroke-width="2" stroke-linecap="round" opacity="0.55">
+    <path d="M200 210 L200 168"/>
+    <path d="M200 190 Q182 178 172 158"/>
+    <path d="M200 190 Q218 178 228 158"/>
+    <path d="M200 175 Q190 165 184 150"/>
+    <path d="M200 175 Q210 165 216 150"/>
+  </g>
+
+  <!-- Company name -->
+  <text x="200" y="300" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-weight="700"
+        font-size="46" letter-spacing="1" class="ink">TRADEMARK</text>
+
+  <!-- Divider dashes -->
+  <g class="stroke-ink" stroke-width="2">
+    <line x1="120" y1="315" x2="150" y2="315"/>
+    <line x1="250" y1="315" x2="280" y2="315"/>
+  </g>
+  <circle cx="200" cy="315" r="2.5" class="ink"/>
+
+  <text x="200" y="332" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-weight="600"
+        font-size="21" letter-spacing="9" class="ink">FLOORING</text>
+
+  <!-- Herringbone parquet band -->
+  <g class="stroke-gold" stroke-width="3" stroke-linecap="round">
+    <path d="M150 352 l10 -12 l10 12"/>
+    <path d="M172 352 l10 -12 l10 12"/>
+    <path d="M194 352 l10 -12 l10 12"/>
+    <path d="M216 352 l10 -12 l10 12"/>
+    <path d="M238 352 l10 -12 l10 12"/>
+  </g>
 </svg>
