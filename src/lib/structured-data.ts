@@ -58,7 +58,7 @@ export function localBusinessSchema() {
       itemOffered: {
         "@type": "Service",
         name: s.title,
-        description: s.summary,
+        description: s.description,
         url: `${site.url}/services/${s.slug}`,
       },
     })),
