@@ -1,0 +1,7 @@
+Computer Specs - Trademark Flooring Project. Device name: DESKTOP-C8LT6F8M-S1N9K.
+
+Processor: Intel Core i5-6500 CPU at3.20 GHz. Installed RAM: 8 GB. System type: 64-bit operating system, X64-based processor. Graphics: Intel HD Graphics 530. Storage: 477 GB SSD. Drive model: Micron 1100 SATA512 GB. Windows: Windows 10. Version: 22H2. OS build: 19045.6466.
+
+Notes: Browser ChatGPT works; Windows app was glitchy after reinstall.
+
+Paste that in and save, then tell me and we'll move on to the next step.

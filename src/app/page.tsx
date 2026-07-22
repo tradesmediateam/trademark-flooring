@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { services } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
