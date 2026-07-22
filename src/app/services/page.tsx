@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { services } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
 
@@ -34,9 +35,7 @@ export default function ServicesPage() {
                 key={service.slug}
                 className="flex flex-col p-8 bg-white rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300"
               >
-                <div className="bg-gradient-to-br from-gray-100 to-gray-200 h-48 rounded-lg mb-6 flex items-center justify-center group-hover:from-orange-100 group-hover:to-orange-50 transition-all">
-                  <div className="text-gray-400 text-5xl">🏗️</div>
-                </div>
+                <PhotoPlaceholder rounded="rounded-lg" className="h-48 mb-6" />
                 <h3 className="font-serif text-2xl font-bold text-amber-950 mb-3">
                   {service.title}
                 </h3>

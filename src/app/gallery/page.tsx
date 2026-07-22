@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { services } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
 
@@ -43,16 +44,11 @@ export default function GalleryPage() {
               {/* Photo Grid Placeholder */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[1, 2, 3].map((item) => (
-                  <div
+                  <PhotoPlaceholder
                     key={item}
-                    className="bg-gradient-to-br from-gray-100 to-gray-200 aspect-square rounded-xl overflow-hidden flex items-center justify-center border-2 border-dashed border-gray-300 hover:border-orange-300 transition-colors"
-                  >
-                    <div className="text-center">
-                      <div className="text-5xl mb-3">📷</div>
-                      <p className="text-gray-500 text-sm">Add project photos here</p>
-                      <p className="text-gray-400 text-xs mt-1">Photo {item}</p>
-                    </div>
-                  </div>
+                    label={`${service.title} · Photo ${item}`}
+                    className="aspect-square"
+                  />
                 ))}
               </div>
             </article>

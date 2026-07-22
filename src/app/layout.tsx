@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Sora, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { TopBar } from "@/components/layout/TopBar";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -66,6 +67,7 @@ export default function RootLayout({
     <html lang="en-CA" className={`${inter.variable} ${sora.variable} ${playfair.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
+        <TopBar />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
+import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { getService, getServiceSlugs } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
 
@@ -50,9 +51,8 @@ export default async function ServiceDetailPage({
       <section className="py-16 bg-white">
         <Container>
           <div className="max-w-3xl">
-            <div className="bg-gray-200 h-96 rounded-lg mb-8 flex items-center justify-center">
-              <div className="text-gray-400 text-6xl">📷</div>
-            </div>
+            <PhotoPlaceholder className="h-96 mb-8" />
+
 
             <div className="prose prose-lg max-w-none">
               <h2 className="font-serif text-3xl font-bold text-amber-950 mb-4">

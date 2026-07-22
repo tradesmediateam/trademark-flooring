@@ -12,9 +12,9 @@
 export const site = {
   name: "Trademark Flooring",
   legalName: "Trademark Flooring Ltd.",
-  tagline: "Precision Concrete Floor Preparation",
+  tagline: "Professional Flooring Contractors",
   description:
-    "Trademark Flooring delivers precision self-levelling, concrete grinding, floor preparation, patching, and skim coating for residential, commercial, high-rise, low-rise, and multi-family projects across Metro Vancouver and British Columbia.",
+    "Trademark Flooring — professional flooring contractors in Burnaby since 2007. We supply and install, or install only: hardwood, laminate, vinyl, carpet, stairs, mouldings, and self-levelling across Metro Vancouver and British Columbia.",
   // Update to your real production domain before deploying.
   url: "https://www.trademarkflooring.ca",
   locale: "en_CA",
@@ -28,11 +28,11 @@ export const site = {
   email: "info@trademarkflooring.ca",
 
   address: {
-    street: "1200 Boundary Road",
-    city: "Vancouver",
+    street: "",
+    city: "Burnaby",
     region: "BC",
     regionName: "British Columbia",
-    postalCode: "V5K 4T3",
+    postalCode: "",
     country: "CA",
   },
 
@@ -54,7 +54,7 @@ export const site = {
     linkedin: "https://www.linkedin.com/",
   },
 
-  foundedYear: 2009,
+  foundedYear: 2007,
 } as const;
 
 /** Cities Trademark Flooring actively serves — used for local SEO + copy. */

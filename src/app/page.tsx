@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { services } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
 
@@ -101,9 +102,10 @@ export default function HomePage() {
               <article key={service.slug} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}>
                 {/* Image Circle */}
                 <div className="flex-shrink-0 w-64 h-64">
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center text-6xl shadow-lg">
-                    🏗️
-                  </div>
+                  <PhotoPlaceholder
+                    rounded="rounded-full"
+                    className="w-full h-full shadow-lg ring-4 ring-white"
+                  />
                 </div>
 
                 {/* Content */}
@@ -176,9 +178,10 @@ export default function HomePage() {
                 href={`/gallery#${service.slug}`}
                 className="group"
               >
-                <div className="bg-gray-300 aspect-square rounded-lg mb-4 overflow-hidden flex items-center justify-center hover:shadow-xl transition-shadow">
-                  <div className="text-gray-500 text-6xl">📸</div>
-                </div>
+                <PhotoPlaceholder
+                  rounded="rounded-lg"
+                  className="aspect-square mb-4 transition-shadow group-hover:shadow-xl"
+                />
                 <h3 className="font-serif text-lg font-bold text-amber-900 group-hover:text-orange-500 transition-colors">
                   {service.title}
                 </h3>
