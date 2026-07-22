@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Trademark Flooring</title>
+  <desc id="desc">Circular heritage seal with a mature oak tree and roots</desc>
+  <defs>
+    <path id="topArc" d="M42 132a86 86 0 0 1 172 0"/>
+    <path id="bottomArc" d="M38 139a91 91 0 0 0 180 0"/>
+    <filter id="ink" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="2" seed="19" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale=".45"/>
+    </filter>
+  </defs>
+
+  <circle cx="128" cy="128" r="122" fill="#f3eee5"/>
+  <g fill="none" stroke="#433d37">
+    <circle cx="128" cy="128" r="116" stroke-width="3.5"/>
+    <circle cx="128" cy="128" r="108" stroke-width="2.25"/>
+  </g>
+
+  <g fill="#433d37" font-family="'Arial Narrow','Roboto Condensed','Helvetica Neue',Arial,sans-serif" font-weight="700" text-anchor="middle" filter="url(#ink)">
+    <text font-size="23" letter-spacing="5.2"><textPath href="#topArc" startOffset="50%">TRADEMARK</textPath></text>
+    <text font-size="23" letter-spacing="6"><textPath href="#bottomArc" startOffset="50%">FLOORING</textPath></text>
+  </g>
+
+  <g fill="#433d37">
+    <circle cx="29" cy="132" r="5"/>
+    <circle cx="227" cy="132" r="5"/>
+  </g>
+
+  <!-- Detailed oak silhouette based on the supplied circular lockup -->
+  <g fill="#766b60" filter="url(#ink)">
+    <path d="M47 129c1-10 9-16 19-15-5-9 2-19 12-19 0-12 12-19 22-14 4-11 18-14 27-6 8-10 24-7 28 5 11-6 24 1 25 13 12-2 22 7 21 18 10 1 16 9 14 18-3 11-14 15-24 10-6 9-20 11-29 4-8 8-21 9-31 3-10 7-25 4-30-7-10 7-25 3-27-9-10 6-25 2-27-11z"/>
+    <circle cx="67" cy="110" r="9"/><circle cx="86" cy="95" r="10"/><circle cx="105" cy="88" r="11"/>
+    <circle cx="128" cy="86" r="12"/><circle cx="151" cy="91" r="12"/><circle cx="174" cy="101" r="11"/>
+    <circle cx="188" cy="119" r="10"/><circle cx="158" cy="115" r="14"/><circle cx="129" cy="108" r="15"/>
+    <circle cx="99" cy="113" r="14"/><circle cx="76" cy="124" r="11"/>
+  </g>
+
+  <g fill="none" stroke="#766b60" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="7" d="M126 105c2 18 1 36-8 52M133 105c-1 22 4 39 14 53"/>
+    <path stroke-width="4" d="M128 118 104 99m27 24 25-28m-31 37-30-12m39 12 31-18"/>
+    <path stroke-width="3.5" d="M121 151c-10 9-20 14-34 18m38-12c-7 12-17 19-31 24m35-25c-1 14-6 23-15 31m20-31c4 13 10 23 20 30m-16-33c8 11 18 19 31 25m-29-31c10 8 21 13 35 17"/>
+    <path stroke-width="1.6" opacity=".8" d="M108 170c-14 4-27 5-40 1m45 7c-14 5-27 6-40 3m77-9c14 4 26 4 38 1m-33 7c12 4 23 4 33 2"/>
+  </g>
+</svg>

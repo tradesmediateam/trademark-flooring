@@ -16,7 +16,7 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Trademark Flooring",
-    "image": "/logo-heritage.svg",
+    "image": "/logo/logo-mark.svg",
     "description": "Professional flooring contractors in Burnaby providing installation, supply, sanding, and refinishing services since 2007",
     "address": {
       "@type": "PostalAddress",
