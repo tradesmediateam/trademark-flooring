@@ -14,49 +14,64 @@ export default function GalleryPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-b from-amber-900 to-amber-800 text-white">
+      <section className="relative py-20 bg-gradient-to-b from-amber-900 via-amber-800 to-amber-950 text-white">
         <Container>
           <div className="text-center">
-            <h1 className="font-serif text-5xl font-bold mb-4">Gallery</h1>
+            <h1 className="font-serif text-5xl sm:text-6xl font-bold mb-4">Gallery</h1>
             <p className="text-lg text-amber-100 max-w-2xl mx-auto">
-              Browse our portfolio of beautiful flooring installations across all services
+              Beautiful flooring installations from Trademark Flooring. Browse our work across all service categories.
             </p>
           </div>
         </Container>
       </section>
 
-      {/* Gallery Grid by Service */}
+      {/* Gallery Sections by Service */}
       <section className="py-20 bg-white">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div key={service.slug} id={service.slug} className="group">
-                <div className="bg-gray-200 aspect-square rounded-lg mb-4 overflow-hidden flex items-center justify-center">
-                  <div className="text-gray-400 text-6xl">📸</div>
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-amber-950 mb-2 group-hover:text-amber-900 transition-colors">
+          {services.map((service, index) => (
+            <div key={service.slug} id={service.slug} className={`mb-20 ${index !== services.length - 1 ? "pb-20 border-b border-gray-200" : ""}`}>
+              {/* Service Header */}
+              <div className="mb-12">
+                <h2 className="font-serif text-4xl font-bold text-amber-950 mb-3">
                   {service.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">
+                </h2>
+                <p className="text-gray-600 text-lg max-w-2xl">
                   {service.description}
                 </p>
-                <p className="text-gray-400 text-xs">
-                  Add photos to this gallery section
-                </p>
               </div>
-            ))}
-          </div>
 
-          <div className="mt-16 p-8 bg-amber-50 rounded-lg text-center">
-            <h2 className="font-serif text-2xl font-bold text-amber-950 mb-2">
-              Upload Your Photos
-            </h2>
-            <p className="text-gray-600 mb-4">
-              You can add photos to each service category above. The gallery is ready to display your beautiful work.
+              {/* Photo Grid Placeholder */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[1, 2, 3].map((item) => (
+                  <div
+                    key={item}
+                    className="bg-gradient-to-br from-gray-100 to-gray-200 aspect-square rounded-xl overflow-hidden flex items-center justify-center border-2 border-dashed border-gray-300 hover:border-amber-300 transition-colors"
+                  >
+                    <div className="text-center">
+                      <div className="text-5xl mb-3">📷</div>
+                      <p className="text-gray-500 text-sm">Add your photos here</p>
+                      <p className="text-gray-400 text-xs mt-1">Image {item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Instructions Card */}
+          <div className="mt-20 p-10 bg-amber-50 rounded-xl border-2 border-amber-200 text-center">
+            <h3 className="font-serif text-2xl font-bold text-amber-950 mb-3">
+              Ready to Add Your Photos?
+            </h3>
+            <p className="text-gray-700 mb-4">
+              You can upload your photos for each service category. The gallery is ready to showcase your beautiful flooring work.
             </p>
-            <p className="text-sm text-gray-500">
-              To add photos: Edit src/lib/projects.ts and add image files to public/images/gallery/
-            </p>
+            <Link
+              href="/contact"
+              className="inline-block bg-amber-950 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-900 transition-colors"
+            >
+              Contact Us About Photos
+            </Link>
           </div>
         </Container>
       </section>
