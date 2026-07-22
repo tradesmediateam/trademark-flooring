@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { services } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
   title: "Trademark Flooring | Professional Flooring Contractors in Burnaby | Installation & Supply",
@@ -66,7 +65,7 @@ export default function HomePage() {
               Quality Flooring Contractors Since 2007
             </h1>
             <p className="text-xl md:text-2xl font-light mb-10 text-amber-50 leading-relaxed">
-              Trademark Flooring - Burnaby's trusted flooring experts. Professional installation, sanding, refinishing, and supply. We handle every project with precision and care.
+              Trademark Flooring - Burnaby&apos;s trusted flooring experts. Professional installation, sanding, refinishing, and supply. We handle every project with precision and care.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -144,10 +143,10 @@ export default function HomePage() {
         <Container>
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
-              Built on Quality & Trust
+              Built on Quality &amp; Trust
             </h2>
             <p className="text-lg md:text-xl mb-8 leading-relaxed text-amber-50">
-              Since 2007, Trademark Flooring has been Burnaby's go-to flooring contractor. We combine expert craftsmanship with quality materials to create floors that last. Whether you need installation, sanding, refinishing, or supply - we&apos;ve got you covered.
+              Since 2007, Trademark Flooring has been Burnaby&apos;s go-to flooring contractor. We combine expert craftsmanship with quality materials to create floors that last. Whether you need installation, sanding, refinishing, or supply - we&apos;ve got you covered.
             </p>
             <Link
               href="/contact"
