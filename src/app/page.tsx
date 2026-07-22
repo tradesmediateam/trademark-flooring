@@ -96,7 +96,7 @@ export default function HomePage() {
             </h2>
             <p className="text-lg leading-relaxed mb-8 text-amber-50">
               At Trademark Flooring, we believe your floors tell the story of your home.
-              Whether you're preserving the character of a heritage home or creating lasting
+              Whether you&apos;re preserving the character of a heritage home or creating lasting
               beauty in a new space, we bring expertise, quality materials, and meticulous
               craftsmanship to every project.
             </p>
