@@ -39,7 +39,7 @@ export function Logo({
         </span>
         <span
           className={cn(
-            "mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.32em] sm:text-xs",
+            "ml-[5px] mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.26em] sm:ml-1.5 sm:text-xs",
             subColor
           )}
         >
