@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
@@ -10,8 +11,8 @@ export function Logo({
   /** "dark" for light backgrounds, "light" for dark backgrounds. */
   variant?: "dark" | "light";
 }) {
-  const textColor = variant === "light" ? "text-white" : "text-ink-950";
-  const subColor = variant === "light" ? "text-ink-200" : "text-ink-400";
+  const textColor = variant === "light" ? "text-white" : "text-amber-950";
+  const subColor = variant === "light" ? "text-amber-100" : "text-amber-700";
 
   return (
     <Link
@@ -19,27 +20,20 @@ export function Logo({
       aria-label={`${site.name} home`}
       className={cn("group inline-flex items-center gap-2.5", className)}
     >
-      <span className="grid h-10 w-10 place-items-center rounded-lg bg-brand-600 text-white shadow-sm transition-transform duration-200 group-hover:scale-105">
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 32 32"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M4 22h24" />
-          <path d="M7 22V10l9-4 9 4v12" />
-          <path d="M12 22v-6h8v6" />
-        </svg>
-      </span>
-      <span className="flex flex-col leading-none">
+      <div className="h-12 w-12 shrink-0 transition-transform duration-200 group-hover:scale-105">
+        <Image
+          src="/logo-heritage.svg"
+          alt="Trademark Flooring heritage barn logo"
+          width={48}
+          height={48}
+          priority
+          className="w-full h-full"
+        />
+      </div>
+      <span className="flex flex-col leading-tight">
         <span
           className={cn(
-            "font-display text-lg font-bold tracking-tight",
+            "font-serif text-lg font-bold tracking-tight",
             textColor
           )}
         >
@@ -47,7 +41,7 @@ export function Logo({
         </span>
         <span
           className={cn(
-            "text-[0.7rem] font-semibold uppercase tracking-[0.2em]",
+            "text-[0.65rem] font-semibold uppercase tracking-[0.28em]",
             subColor
           )}
         >

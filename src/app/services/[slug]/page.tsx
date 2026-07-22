@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Section } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
-import { ServiceIcon } from "@/components/ui/ServiceIcon";
-import { CheckIcon, ArrowRightIcon } from "@/components/ui/Icons";
-import { EstimateCta } from "@/components/estimate/EstimateCta";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, serviceSchema } from "@/lib/structured-data";
-import { getService, getServiceSlugs, services } from "@/lib/services";
+import { Container } from "@/components/ui/Container";
+import { getService, getServiceSlugs } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
-import { serviceAreas } from "@/lib/site";
 
 export function generateStaticParams() {
   return getServiceSlugs().map((slug) => ({ slug }));
@@ -27,9 +20,8 @@ export async function generateMetadata({
 
   return buildMetadata({
     title: service.title,
-    description: service.summary,
+    description: service.description,
     path: `/services/${service.slug}`,
-    keywords: [service.title, ...service.applications],
   });
 }
 
@@ -42,141 +34,71 @@ export default async function ServiceDetailPage({
   const service = getService(slug);
   if (!service) notFound();
 
-  const related = services
-    .filter((s) => s.slug !== service.slug && s.category === service.category)
-    .slice(0, 3);
-
   return (
     <>
-      <JsonLd
-        data={[
-          serviceSchema(service),
-          breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Services", path: "/services" },
-            { name: service.title, path: `/services/${service.slug}` },
-          ]),
-        ]}
-      />
-
-      <section className="relative overflow-hidden bg-ink-950 text-white">
-        <div
-          className="pointer-events-none absolute inset-0 bg-grid-slate opacity-[0.12]"
-          style={{ backgroundSize: "44px 44px" }}
-          aria-hidden="true"
-        />
-        <div className="container relative py-16 sm:py-20">
-          <nav aria-label="Breadcrumb" className="text-sm text-ink-400">
-            <Link href="/services" className="hover:text-white">
-              Services
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-ink-200">{service.title}</span>
-          </nav>
-
-          <div className="mt-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-600 text-white">
-            <ServiceIcon name={service.icon} className="h-7 w-7" />
-          </div>
-
-          <h1 className="mt-5 max-w-2xl font-display text-4xl font-bold tracking-tight sm:text-5xl">
-            {service.title}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-200">
-            {service.intro}
-          </p>
-
-          <div className="mt-8">
-            <Button href="/contact" size="lg">
-              Get Your Free In-Home Estimate
-            </Button>
-          </div>
-        </div>
+      {/* Hero Section */}
+      <section className="relative py-16 bg-gradient-to-b from-amber-900 to-amber-800 text-white">
+        <Container>
+          <Link href="/services" className="text-amber-100 hover:text-white mb-4 inline-block">
+            ← Back to Services
+          </Link>
+          <h1 className="font-serif text-5xl font-bold">{service.title}</h1>
+        </Container>
       </section>
 
-      <Section className="bg-white">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-7">
-            <h2 className="font-display text-2xl font-bold text-ink-950">
-              What&apos;s included
-            </h2>
-            <ul className="mt-5 space-y-3">
-              {service.scope.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-100 text-brand-700">
-                    <CheckIcon className="h-3.5 w-3.5" />
-                  </span>
-                  <span className="text-ink-600">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <h2 className="mt-10 font-display text-2xl font-bold text-ink-950">
-              Where it&apos;s used
-            </h2>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {service.applications.map((app) => (
-                <span
-                  key={app}
-                  className="rounded-full bg-ink-50 px-3.5 py-1.5 text-sm font-medium text-ink-600"
-                >
-                  {app}
-                </span>
-              ))}
+      {/* Content Section */}
+      <section className="py-16 bg-white">
+        <Container>
+          <div className="max-w-3xl">
+            <div className="bg-gray-200 h-96 rounded-lg mb-8 flex items-center justify-center">
+              <div className="text-gray-400 text-6xl">📷</div>
             </div>
-          </div>
 
-          <div className="lg:col-span-5">
-            <div className="rounded-2xl border border-ink-100 bg-ink-50/60 p-7">
-              <h2 className="font-display text-xl font-bold text-ink-950">
-                Why it matters
+            <div className="prose prose-lg max-w-none">
+              <h2 className="font-serif text-3xl font-bold text-amber-950 mb-4">
+                {service.title}
               </h2>
-              <div className="mt-5 space-y-5">
-                {service.benefits.map((b) => (
-                  <div key={b.title}>
-                    <p className="font-semibold text-ink-900">{b.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-ink-500">
-                      {b.description}
-                    </p>
-                  </div>
-                ))}
+              <p className="text-gray-600 text-lg mb-6">
+                {service.description}
+              </p>
+
+              <h3 className="font-serif text-2xl font-bold text-amber-950 mt-8 mb-4">
+                About This Service
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Add detailed information about {service.title.toLowerCase()} here. Describe the process,
+                benefits, and why this service is important for your flooring needs. Include pricing
+                information, timelines, and any special considerations.
+              </p>
+
+              <h3 className="font-serif text-2xl font-bold text-amber-950 mt-8 mb-4">
+                Why Choose Trademark Flooring?
+              </h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>Professional installation and expertise</li>
+                <li>Quality materials and workmanship</li>
+                <li>Attention to detail on every project</li>
+                <li>Competitive pricing and transparent quotes</li>
+              </ul>
+
+              <div className="mt-12 p-8 bg-amber-50 rounded-lg">
+                <h3 className="font-serif text-2xl font-bold text-amber-950 mb-4">
+                  Ready to get started?
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Contact us today for a free consultation and personalized quote for your {service.title.toLowerCase()} project.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-block bg-amber-950 text-white px-8 py-3 rounded font-semibold hover:bg-amber-900 transition-colors"
+                >
+                  Get a Free Quote
+                </Link>
               </div>
             </div>
-
-            <p className="mt-6 text-sm text-ink-500">
-              Serving {serviceAreas.join(", ")}.
-            </p>
           </div>
-        </div>
-      </Section>
-
-      {related.length > 0 ? (
-        <Section className="bg-ink-50/50">
-          <h2 className="font-display text-2xl font-bold text-ink-950">
-            Related services
-          </h2>
-          <div className="mt-6 grid gap-5 sm:grid-cols-3">
-            {related.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/services/${s.slug}`}
-                className="group flex flex-col rounded-2xl border border-ink-100 bg-white p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover"
-              >
-                <ServiceIcon name={s.icon} className="h-6 w-6 text-brand-600" />
-                <h3 className="mt-3 font-display font-bold text-ink-950">
-                  {s.title}
-                </h3>
-                <p className="mt-1.5 text-sm text-ink-500">{s.summary}</p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
-                  Learn more
-                  <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </Section>
-      ) : null}
-
-      <EstimateCta />
+        </Container>
+      </section>
     </>
   );
 }

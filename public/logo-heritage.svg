@@ -1,0 +1,71 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="barnRoof" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="barnWood" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B6F47;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#704214;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="doorWood" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6B4423;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A2511;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Barn Roof (Left) -->
+  <path d="M 80 100 L 150 40 L 220 100" fill="url(#barnRoof)" stroke="#5A3A1A" stroke-width="1.5"/>
+
+  <!-- Barn Roof (Right - back) -->
+  <path d="M 85 105 L 150 50 L 215 105" fill="url(#barnRoof)" fill-opacity="0.85" stroke="#5A3A1A" stroke-width="1.5"/>
+
+  <!-- Barn Main Body -->
+  <rect x="85" y="100" width="130" height="100" fill="url(#barnWood)" stroke="#4A3A2A" stroke-width="2"/>
+
+  <!-- Barn Door -->
+  <rect x="115" y="140" width="70" height="75" fill="url(#doorWood)" stroke="#3A2A1A" stroke-width="2"/>
+
+  <!-- Door Handle -->
+  <circle cx="180" cy="175" r="2.5" fill="#D4A574" stroke="#A0825D" stroke-width="1"/>
+
+  <!-- Barn Door Planks -->
+  <line x1="115" y1="155" x2="185" y2="155" stroke="#5A3A1A" stroke-width="0.8" opacity="0.4"/>
+  <line x1="115" y1="170" x2="185" y2="170" stroke="#5A3A1A" stroke-width="0.8" opacity="0.4"/>
+  <line x1="115" y1="185" x2="185" y2="185" stroke="#5A3A1A" stroke-width="0.8" opacity="0.4"/>
+  <line x1="115" y1="200" x2="185" y2="200" stroke="#5A3A1A" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Left Window -->
+  <rect x="105" y="120" width="20" height="20" fill="#E8D4B0" stroke="#8B4513" stroke-width="1.5"/>
+  <line x1="115" y1="120" x2="115" y2="140" stroke="#8B4513" stroke-width="1"/>
+  <line x1="105" y1="130" x2="125" y2="130" stroke="#8B4513" stroke-width="1"/>
+
+  <!-- Right Window -->
+  <rect x="175" y="120" width="20" height="20" fill="#E8D4B0" stroke="#8B4513" stroke-width="1.5"/>
+  <line x1="185" y1="120" x2="185" y2="140" stroke="#8B4513" stroke-width="1"/>
+  <line x1="175" y1="130" x2="195" y2="130" stroke="#8B4513" stroke-width="1"/>
+
+  <!-- Weathering/Texture Lines -->
+  <g stroke="#5A3A1A" stroke-width="0.5" opacity="0.3">
+    <line x1="90" y1="110" x2="210" y2="110"/>
+    <line x1="90" y1="130" x2="210" y2="130"/>
+    <line x1="90" y1="150" x2="210" y2="150"/>
+    <line x1="90" y1="170" x2="210" y2="170"/>
+    <line x1="90" y1="190" x2="210" y2="190"/>
+  </g>
+
+  <!-- Wood Stack at Base (heritage detail) -->
+  <rect x="70" y="205" width="15" height="8" fill="#8B6F47" stroke="#6B5335" stroke-width="1" opacity="0.7"/>
+  <rect x="90" y="207" width="15" height="8" fill="#A0825D" stroke="#6B5335" stroke-width="1" opacity="0.7"/>
+  <rect x="215" y="205" width="15" height="8" fill="#8B6F47" stroke="#6B5335" stroke-width="1" opacity="0.7"/>
+  <rect x="235" y="207" width="15" height="8" fill="#A0825D" stroke="#6B5335" stroke-width="1" opacity="0.7"/>
+
+  <!-- Barn Siding Details -->
+  <line x1="130" y1="100" x2="130" y2="200" stroke="#5A3A1A" stroke-width="0.6" opacity="0.2"/>
+  <line x1="170" y1="100" x2="170" y2="200" stroke="#5A3A1A" stroke-width="0.6" opacity="0.2"/>
+
+  <!-- Gold Heritage Accent -->
+  <circle cx="150" cy="230" r="3" fill="#D4A574" opacity="0.8"/>
+  <line x1="130" y1="230" x2="170" y2="230" stroke="#D4A574" stroke-width="1" opacity="0.5"/>
+</svg>

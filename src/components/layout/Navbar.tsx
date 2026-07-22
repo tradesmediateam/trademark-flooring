@@ -31,8 +31,8 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-ink-100 bg-white/90 backdrop-blur-md shadow-sm"
-          : "border-b border-transparent bg-white/60 backdrop-blur-sm"
+          ? "border-b border-amber-200 bg-white/95 backdrop-blur-md shadow-md"
+          : "border-b border-transparent bg-white/80 backdrop-blur-sm"
       )}
     >
       <nav
@@ -49,8 +49,8 @@ export function Navbar() {
                 className={cn(
                   "rounded-md px-3.5 py-2 text-sm font-medium transition-colors",
                   isActive(link.href)
-                    ? "text-brand-700"
-                    : "text-ink-600 hover:text-ink-950"
+                    ? "text-amber-900 font-semibold"
+                    : "text-gray-700 hover:text-amber-900"
                 )}
                 aria-current={isActive(link.href) ? "page" : undefined}
               >

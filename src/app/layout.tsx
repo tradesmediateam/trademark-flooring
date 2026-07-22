@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Inter, Sora, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -17,6 +17,13 @@ const inter = Inter({
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",
+  display: "swap",
+  weight: ["600", "700", "800"],
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
   display: "swap",
   weight: ["600", "700", "800"],
 });
@@ -56,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-CA" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en-CA" className={`${inter.variable} ${sora.variable} ${playfair.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
         <Navbar />

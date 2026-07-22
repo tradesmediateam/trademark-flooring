@@ -1,51 +1,66 @@
 import type { Metadata } from "next";
-import { Section } from "@/components/ui/Section";
-import { GalleryGrid } from "@/components/gallery/GalleryGrid";
-import { EstimateCta } from "@/components/estimate/EstimateCta";
-import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema } from "@/lib/structured-data";
-import { projects, totalImageCount } from "@/lib/projects";
+import Link from "next/link";
+import { Container } from "@/components/ui/Container";
+import { services } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
-import { serviceAreas } from "@/lib/site";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Project Gallery",
+  title: "Gallery",
   description:
-    "Browse residential, commercial, high-rise, low-rise, and multi-family floor preparation projects completed by Trademark Flooring across Metro Vancouver.",
+    "View beautiful flooring projects and installations from Trademark Flooring.",
   path: "/gallery",
 });
 
 export default function GalleryPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Gallery", path: "/gallery" },
-        ])}
-      />
+      {/* Hero Section */}
+      <section className="relative py-16 bg-gradient-to-b from-amber-900 to-amber-800 text-white">
+        <Container>
+          <div className="text-center">
+            <h1 className="font-serif text-5xl font-bold mb-4">Gallery</h1>
+            <p className="text-lg text-amber-100 max-w-2xl mx-auto">
+              Browse our portfolio of beautiful flooring installations across all services
+            </p>
+          </div>
+        </Container>
+      </section>
 
-      <Section className="bg-ink-950 text-white" contained={false}>
-        <div className="container py-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-400">
-            Project Gallery
-          </p>
-          <h1 className="mx-auto mt-3 max-w-3xl font-display text-4xl font-bold tracking-tight sm:text-5xl">
-            {projects.length}+ projects across {serviceAreas.slice(0, 3).join(", ")} & beyond
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-ink-200">
-            A look at our self-levelling, grinding, and floor preparation
-            work across residential, commercial, high-rise, low-rise, and
-            multi-family projects. {totalImageCount()}+ photos and counting.
-          </p>
-        </div>
-      </Section>
+      {/* Gallery Grid by Service */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <div key={service.slug} id={service.slug} className="group">
+                <div className="bg-gray-200 aspect-square rounded-lg mb-4 overflow-hidden flex items-center justify-center">
+                  <div className="text-gray-400 text-6xl">📸</div>
+                </div>
+                <h3 className="font-serif text-2xl font-bold text-amber-950 mb-2 group-hover:text-amber-900 transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  {service.description}
+                </p>
+                <p className="text-gray-400 text-xs">
+                  Add photos to this gallery section
+                </p>
+              </div>
+            ))}
+          </div>
 
-      <Section className="bg-white">
-        <GalleryGrid projects={projects} />
-      </Section>
-
-      <EstimateCta showForm={false} />
+          <div className="mt-16 p-8 bg-amber-50 rounded-lg text-center">
+            <h2 className="font-serif text-2xl font-bold text-amber-950 mb-2">
+              Upload Your Photos
+            </h2>
+            <p className="text-gray-600 mb-4">
+              You can add photos to each service category above. The gallery is ready to display your beautiful work.
+            </p>
+            <p className="text-sm text-gray-500">
+              To add photos: Edit src/lib/projects.ts and add image files to public/images/gallery/
+            </p>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }
