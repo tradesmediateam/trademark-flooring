@@ -10,7 +10,7 @@ import { PhoneIcon, MailIcon, MapPinIcon, ClockIcon } from "@/components/ui/Icon
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Us",
+  title: "Free Flooring Estimate Burnaby BC | Trademark Flooring",
   description:
     "Get in touch with Trademark Flooring for a free, no-obligation estimate. Call, email, or send your project details online — serving Metro Vancouver and BC.",
   path: "/contact",
@@ -29,26 +29,26 @@ export default function ContactPage() {
         ]}
       />
 
-      <Section className="bg-ink-950 text-white" contained={false}>
+      <Section className="heritage-grain border-b border-[#8a5b3b]/10 text-[#3a322d]" contained={false}>
         <div className="container py-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-400">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#c96527]">
             Contact Us
           </p>
-          <h1 className="mx-auto mt-3 max-w-2xl font-display text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="mx-auto mt-3 max-w-2xl font-serif text-4xl font-bold tracking-tight text-[#633318] sm:text-5xl">
             Free In-Home Estimate — No Obligation
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-ink-200">
+          <p className="mx-auto mt-5 max-w-2xl text-lg text-[#746b64]">
             Call now for a one-tap connection, email us, or send your project
             details below and we&apos;ll get back to you quickly.
           </p>
-          <CallEmailButtons className="mt-8 justify-center" tone="onDark" size="lg" />
+          <CallEmailButtons className="mt-8 justify-center" size="lg" />
         </div>
       </Section>
 
-      <Section className="bg-white">
+      <Section className="heritage-grain">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
-            <div id="estimate-form" className="scroll-mt-24 rounded-2xl border border-ink-100 bg-white p-6 shadow-card sm:p-8">
+            <div id="estimate-form" className="scroll-mt-24 border border-[#8a5b3b]/15 bg-white/90 p-6 shadow-card sm:p-8">
               <h2 className="font-display text-2xl font-bold text-ink-950">
                 Request your free estimate
               </h2>
@@ -131,7 +131,7 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <Section className="bg-ink-50/50">
+      <Section className="heritage-grain">
         <h2 className="text-center font-display text-2xl font-bold text-ink-950 sm:text-3xl">
           Frequently asked questions
         </h2>

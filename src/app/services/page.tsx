@@ -6,8 +6,8 @@ import { services } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Flooring Services | Trademark Flooring Burnaby",
-  description: "Professional flooring services in Burnaby: installation, sanding, refinishing, supply. Hardwood, laminate, vinyl, carpet, stairs, mouldings, and more.",
+  title: "Flooring Services Burnaby BC | Trademark Flooring",
+  description: "Burnaby flooring services including self-levelling, hardwood, laminate, vinyl, carpet, stairs, mouldings, sanding, refinishing, supply, and installation.",
   path: "/services",
 });
 
@@ -15,28 +15,29 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-amber-900 via-amber-800 to-amber-950 text-white">
+      <section className="heritage-grain border-b border-[#8a5b3b]/10 py-16 text-center md:py-20">
         <Container>
           <div className="text-center">
-            <h1 className="font-serif text-5xl sm:text-6xl font-bold mb-6">Our Services</h1>
-            <p className="text-lg text-amber-100 max-w-2xl mx-auto">
-              Complete flooring solutions. From preparation to installation and finishing.
+            <p className="text-xs font-bold uppercase tracking-[.24em] text-[#cf692a]">What we do</p>
+            <h1 className="mt-3 font-serif text-4xl font-bold text-[#633318] md:text-5xl">Burnaby Flooring Services</h1>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-[#776e67]">
+              Complete flooring preparation, supply, installation, restoration, and finishing since 2007.
             </p>
           </div>
         </Container>
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-white">
+      <section className="heritage-grain py-20 md:py-24">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
               <article
                 key={service.slug}
-                className="flex flex-col p-8 bg-white rounded-xl border border-gray-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300"
+                className="flex flex-col border border-[#8a5b3b]/15 bg-white/80 p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <PhotoPlaceholder rounded="rounded-lg" className="h-48 mb-6" />
-                <h3 className="font-serif text-2xl font-bold text-amber-950 mb-3">
+                <PhotoPlaceholder rounded="rounded-none" className="h-48 mb-6" />
+                <h3 className="font-serif text-2xl font-bold text-[#713b1d] mb-3">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 text-base leading-relaxed mb-6 flex-1">
@@ -44,7 +45,7 @@ export default function ServicesPage() {
                 </p>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="inline-block text-orange-500 font-semibold hover:text-orange-600 transition-colors"
+                  className="inline-block text-[#c76227] font-semibold hover:text-[#7b3b1b] transition-colors"
                 >
                   Learn More →
                 </Link>
@@ -55,18 +56,18 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-amber-950 text-white">
+      <section className="walnut-grain relative py-20 text-white">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-5xl font-bold mb-6">
-              Ready to Get Started?
+              Free In-Home, No-Obligation Estimate
             </h2>
             <p className="text-lg text-amber-100 mb-10 leading-relaxed">
-              Contact Trademark Flooring today for a free consultation. Our team is ready to help bring your vision to life.
+              Tell us about your Burnaby flooring project and we&apos;ll provide clear recommendations for the right materials, preparation, and installation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:(604)555-0142"
+                href="tel:+16045550142"
                 className="inline-block bg-white text-amber-950 px-8 py-4 rounded-lg font-semibold hover:bg-amber-50 transition-colors"
               >
                 Call Us Now
@@ -75,7 +76,7 @@ export default function ServicesPage() {
                 href="/contact"
                 className="inline-block bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
               >
-                Request a Quote
+                Request an Estimate
               </Link>
             </div>
           </div>

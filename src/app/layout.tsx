@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Sora, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "@/components/layout/TopBar";
 import { Navbar } from "@/components/layout/Navbar";
@@ -8,26 +7,6 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { localBusinessSchema, websiteSchema } from "@/lib/structured-data";
 import { buildMetadata, defaultKeywords } from "@/lib/seo";
 import { site } from "@/lib/site";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-sora",
-  display: "swap",
-  weight: ["600", "700", "800"],
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  weight: ["600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -64,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-CA" className={`${inter.variable} ${sora.variable} ${playfair.variable}`}>
+    <html lang="en-CA">
       <body className="flex min-h-screen flex-col font-sans">
         <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
         <TopBar />

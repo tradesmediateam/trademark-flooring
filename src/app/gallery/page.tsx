@@ -1,73 +1,41 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { services } from "@/lib/services";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Flooring Gallery | Trademark Flooring Project Photos",
-  description: "See our flooring projects in action. Gallery of professional installations, sanding, refinishing, and supply work by Trademark Flooring.",
+  title: "Flooring Project Gallery Burnaby BC | Trademark Flooring",
+  description: "Explore Trademark Flooring project categories including self-levelling, hardwood, laminate, vinyl, stairs, mouldings, and flooring installation in Burnaby, BC.",
   path: "/gallery",
 });
 
 export default function GalleryPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-amber-900 via-amber-800 to-amber-950 text-white">
-        <Container>
-          <div className="text-center">
-            <h1 className="font-serif text-5xl sm:text-6xl font-bold mb-6">Project Gallery</h1>
-            <p className="text-lg text-amber-100 max-w-2xl mx-auto">
-              Professional flooring installations across all service categories.
-            </p>
-          </div>
-        </Container>
+      <section className="heritage-grain border-b border-[#8a5b3b]/10 py-16 text-center md:py-20">
+        <p className="text-xs font-bold uppercase tracking-[.24em] text-[#cf692a]">Our work</p>
+        <h1 className="mt-3 font-serif text-4xl font-bold text-[#633318] md:text-5xl">Flooring Project Gallery</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-[#776e67]">A preview of the preparation, installation, and finishing services available in Burnaby and Metro Vancouver.</p>
       </section>
 
-      {/* Gallery Sections by Service */}
-      <section className="py-20 bg-white">
+      <section className="heritage-grain py-16 md:py-24">
         <Container>
-          {services.map((service, index) => (
-            <article key={service.slug} id={service.slug} className={`mb-20 ${index !== services.length - 1 ? "pb-20 border-b border-gray-200" : ""}`}>
-              {/* Service Header */}
-              <div className="mb-12">
-                <h2 className="font-serif text-4xl font-bold text-amber-950 mb-3">
-                  {service.title}
-                </h2>
-                <p className="text-gray-600 text-lg max-w-2xl">
-                  {service.description}
-                </p>
-              </div>
-
-              {/* Photo Grid Placeholder */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[1, 2, 3].map((item) => (
-                  <PhotoPlaceholder
-                    key={item}
-                    label={`${service.title} · Photo ${item}`}
-                    className="aspect-square"
-                  />
-                ))}
-              </div>
-            </article>
-          ))}
-
-          {/* Instructions Card */}
-          <div className="mt-20 p-10 bg-orange-50 rounded-xl border-2 border-orange-200 text-center">
-            <h3 className="font-serif text-2xl font-bold text-amber-950 mb-3">
-              Ready to Add Your Photos?
-            </h3>
-            <p className="text-gray-700 mb-4">
-              Upload your project photos for each service category to showcase your beautiful flooring work.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
-            >
-              Contact Us About Photos
-            </Link>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <Link key={service.slug} href={`/services/${service.slug}`} className="group relative aspect-[4/3] overflow-hidden bg-[#4a2919]">
+                <div className="walnut-grain absolute inset-0 transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                  <span className="text-xs font-bold tracking-[.22em] text-[#efa56e]">0{index + 1}</span>
+                  <h2 className="mt-2 font-serif text-2xl font-bold">{service.title}</h2>
+                  <p className="mt-2 text-sm text-white/75">{service.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-14 text-center">
+            <Link href="/contact" className="inline-flex min-h-12 items-center bg-[#cf6728] px-8 text-sm font-bold uppercase tracking-[.12em] text-white hover:bg-[#a94e1d]">Free in-home estimate</Link>
           </div>
         </Container>
       </section>

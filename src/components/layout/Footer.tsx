@@ -9,14 +9,14 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-ink-800 bg-ink-950 text-ink-200">
+    <footer className="border-t-4 border-[#c9692c] bg-[#713b1d] text-[#f8ede4]">
       <div className="container py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           {/* Brand + contact */}
           <div className="lg:col-span-4">
             <Logo variant="light" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-300">
-              {site.description}
+              Burnaby flooring craftsmanship since {site.foundedYear}. Hardwood, laminate, vinyl, stairs, mouldings, and self-levelling throughout Metro Vancouver.
             </p>
             <ul className="mt-6 space-y-3 text-sm">
               <li>
@@ -112,7 +112,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-ink-800 pt-8 text-sm text-ink-400 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-8 text-sm text-[#d9baa5] sm:flex-row">
           <p>
             © {year} {site.legalName}. All rights reserved.
           </p>

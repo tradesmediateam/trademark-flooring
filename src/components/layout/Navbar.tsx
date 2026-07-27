@@ -31,26 +31,26 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-amber-200 bg-white/95 backdrop-blur-md shadow-md"
-          : "border-b border-transparent bg-white/80 backdrop-blur-sm"
+          ? "border-b border-[#eadfd3] bg-white/97 shadow-sm"
+          : "border-b border-[#eee7df] bg-white"
       )}
     >
       <nav
-        className="container flex h-16 items-center justify-between lg:h-20"
+        className="container flex h-20 items-center justify-between lg:h-28"
         aria-label="Primary"
       >
         <Logo />
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-3 lg:flex">
           {mainNav.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 className={cn(
-                  "rounded-md px-3.5 py-2 text-sm font-medium transition-colors",
+                  "border-b-2 px-2 py-3 text-sm font-semibold transition-colors",
                   isActive(link.href)
-                    ? "text-amber-900 font-semibold"
-                    : "text-gray-700 hover:text-amber-900"
+                    ? "border-[#cf6d28] text-[#4b2a1a]"
+                    : "border-transparent text-[#403a35] hover:text-[#9a4e21]"
                 )}
                 aria-current={isActive(link.href) ? "page" : undefined}
               >
