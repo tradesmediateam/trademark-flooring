@@ -66,7 +66,7 @@ export default async function ProjectDetailPage({
             {project.sector}
           </span>
           <span className="text-sm text-ink-400">
-            {project.location} · {project.year}
+            {project.location}
           </span>
         </div>
 

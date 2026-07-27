@@ -37,7 +37,7 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <div className="p-5">
         <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
-          {project.location} · {project.year}
+          {project.location}
         </p>
         <h3 className="mt-1.5 font-display text-lg font-bold text-ink-950">
           {project.title}
