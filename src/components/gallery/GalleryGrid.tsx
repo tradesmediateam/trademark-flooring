@@ -1,75 +1,106 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import type { Project } from "@/lib/projects";
 import { ProjectCard } from "./ProjectCard";
 import { cn } from "@/lib/utils";
 
-const ALL = "All" as const;
+export type ServiceCover = { service: string; src: string; alt: string };
 
 /**
- * Client-side filterable grid. Filters projects by service and by city — both
- * cheap in-memory operations that scale comfortably to hundreds of projects.
+ * Gallery browser: premium image cards act as service filters. Selecting a
+ * card filters the project grid below; selecting it again clears the filter.
+ * Filtering is a cheap in-memory operation that scales to hundreds of projects.
  */
 export function GalleryGrid({
   projects,
-  services,
-  cities,
+  serviceCovers,
 }: {
   projects: Project[];
-  services: string[];
-  cities: string[];
+  serviceCovers: ServiceCover[];
 }) {
-  const [service, setService] = useState<string>(ALL);
-  const [city, setCity] = useState<string>(ALL);
+  const [active, setActive] = useState<string | null>(null);
 
   const filtered = useMemo(
-    () =>
-      projects.filter(
-        (p) =>
-          (service === ALL || p.services.includes(service)) &&
-          (city === ALL || p.location === city)
-      ),
-    [projects, service, city]
+    () => (active ? projects.filter((p) => p.services.includes(active)) : projects),
+    [projects, active]
   );
-
-  const chip = (active: boolean) =>
-    cn(
-      "rounded-full px-4 py-2 text-sm font-semibold transition-colors",
-      active
-        ? "bg-ink-950 text-white"
-        : "bg-ink-50 text-ink-600 hover:bg-ink-100"
-    );
 
   return (
     <div>
-      {/* Service filter */}
-      <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="Filter by service">
-        {[ALL, ...services].map((s) => (
-          <button key={s} type="button" onClick={() => setService(s)} className={chip(service === s)} aria-pressed={service === s}>
-            {s === ALL ? "All Services" : s}
-          </button>
-        ))}
+      {/* Service filter cards */}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+        {serviceCovers.map((c) => {
+          const selected = active === c.service;
+          return (
+            <button
+              key={c.service}
+              type="button"
+              onClick={() => setActive(selected ? null : c.service)}
+              aria-pressed={selected}
+              className={cn(
+                "group relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink-900 shadow-card transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 lg:aspect-[3/4]",
+                selected
+                  ? "ring-2 ring-brand-600 ring-offset-2"
+                  : "hover:-translate-y-1 hover:shadow-card-hover"
+              )}
+            >
+              <Image
+                src={c.src}
+                alt={c.alt}
+                fill
+                sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                className={cn(
+                  "absolute inset-0 bg-gradient-to-t transition-colors",
+                  selected
+                    ? "from-brand-950/85 via-brand-900/30 to-transparent"
+                    : "from-ink-950/80 via-ink-950/20 to-transparent"
+                )}
+              />
+              <div className="absolute inset-x-0 bottom-0 p-3 text-left sm:p-4">
+                <span className="font-serif text-base font-bold text-white drop-shadow sm:text-lg">
+                  {c.service}
+                </span>
+              </div>
+            </button>
+          );
+        })}
       </div>
 
-      {/* City filter */}
-      <div className="mt-3 flex flex-wrap justify-center gap-2" role="group" aria-label="Filter by city">
-        {[ALL, ...cities].map((c) => (
-          <button key={c} type="button" onClick={() => setCity(c)} className={chip(city === c)} aria-pressed={city === c}>
-            {c === ALL ? "All Cities" : c}
-          </button>
-        ))}
+      {/* Filter status / reset */}
+      <div className="mt-6 flex items-center justify-center gap-3 text-sm">
+        {active ? (
+          <>
+            <span className="text-ink-500">
+              Showing <span className="font-semibold text-ink-800">{active}</span> projects
+            </span>
+            <button
+              type="button"
+              onClick={() => setActive(null)}
+              className="font-semibold text-brand-700 underline-offset-4 hover:underline"
+            >
+              Show all
+            </button>
+          </>
+        ) : (
+          <span className="text-ink-400">Tap a service to filter · showing all projects</span>
+        )}
       </div>
 
+      {/* Project grid */}
       {filtered.length > 0 ? (
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
       ) : (
         <p className="mt-16 text-center text-ink-500">
-          No projects match those filters yet — try a different combination.
+          No projects in this category yet — check back soon.
         </p>
       )}
     </div>

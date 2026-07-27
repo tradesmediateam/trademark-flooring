@@ -61,12 +61,11 @@ export const site = {
 export const serviceAreas = [
   "Vancouver",
   "Burnaby",
-  "Surrey",
   "Richmond",
-  "Langley",
+  "Surrey",
   "Coquitlam",
-  "North Vancouver",
-  "West Vancouver",
+  "Delta",
+  "Langley",
 ] as const;
 
 export type ServiceArea = (typeof serviceAreas)[number];
