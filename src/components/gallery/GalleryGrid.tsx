@@ -87,7 +87,7 @@ export function GalleryGrid({
             </button>
           </>
         ) : (
-          <span className="text-ink-400">Tap a service to filter · showing all projects</span>
+          <span className="text-ink-400">Tap a project to view images</span>
         )}
       </div>
 
