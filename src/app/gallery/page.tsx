@@ -40,6 +40,9 @@ export default function GalleryPage() {
 
       <section className="py-14 md:py-20">
         <Container>
+          <p className="mb-8 text-center text-sm font-medium text-[#a9856b]">
+            Tap a service to view projects
+          </p>
           <GalleryGrid projects={projects} serviceCovers={serviceCovers} />
 
           <div className="mt-16 text-center">
