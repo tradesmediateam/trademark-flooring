@@ -13,15 +13,15 @@ export const metadata: Metadata = buildMetadata({
   path: "/gallery",
 });
 
-/** One representative real photo per service for the filter cards. */
+/** Provided real photo per service for the filter cards. */
 const serviceCovers: ServiceCover[] = [
-  { service: "Self-Levelling", slug: "self-levelling-richmond-warehouse", alt: "Self-levelling underlayment poured across a Richmond warehouse floor" },
-  { service: "Hardwood", slug: "acacia-prefinished-hardwood-vancouver", alt: "Acacia prefinished hardwood flooring in a Metro Vancouver home" },
-  { service: "Laminate", slug: "laminate-flooring-coquitlam", alt: "Laminate flooring installed in a Coquitlam home" },
-  { service: "Vinyl", slug: "vinyl-flooring-vancouver-office", alt: "Commercial vinyl flooring in a Vancouver office" },
-  { service: "Carpet", slug: "commercial-carpet-vancouver-renfrew-corridor", alt: "Commercial corridor carpet in a Renfrew, Vancouver building" },
-  { service: "Stairs", slug: "hardwood-stairs-west-vancouver", alt: "Hardwood stairs installed in a West Vancouver home" },
-].map((c) => ({ service: c.service, src: `/images/gallery/${c.slug}/${c.slug}-1.jpg`, alt: c.alt }));
+  { service: "Self-Levelling", src: "/images/gallery/service-cards/self-levelling.jpg", alt: "Self-levelling flooring project by Trademark Flooring" },
+  { service: "Hardwood", src: "/images/gallery/service-cards/hardwood.jpg", alt: "Hardwood flooring project by Trademark Flooring" },
+  { service: "Laminate", src: "/images/gallery/service-cards/laminate.jpg", alt: "Laminate flooring project by Trademark Flooring" },
+  { service: "Vinyl", src: "/images/gallery/service-cards/vinyl.jpg", alt: "Vinyl flooring project by Trademark Flooring" },
+  { service: "Carpet", src: "/images/gallery/service-cards/carpet.jpg", alt: "Carpet flooring project by Trademark Flooring" },
+  { service: "Stairs", src: "/images/gallery/service-cards/stairs.jpg", alt: "Stairs flooring project by Trademark Flooring" },
+];
 
 export default function GalleryPage() {
   return (
